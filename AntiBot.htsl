@@ -1,0 +1,19 @@
+goto event "Player Join"
+if (stat "AntiBot/Strikes" == 2) {
+    tp "custom_coordinates" "" /* coords for auto-kicker (or some way to ban/kick them)*/
+} else {
+    stat "AntiBot/PosX" = locX
+    stat "AntiBot/PosZ" = locZ
+}
+
+goto event "Player Quit"
+if (stat "Playtime/Sesh" < 10, stat "AntiBot/PosX" == locX, stat "AntiBot/PosZ" == locZ) {
+    stat "AntiBot/Strikes" += 1
+}
+
+/*
+You need
+1. A function to count every second they're in the house.
+2. Some way to kick/ban/mute/punish the bot.
+3. To give me a cookie pls.
+*/

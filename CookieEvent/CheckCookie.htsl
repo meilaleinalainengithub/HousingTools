@@ -1,0 +1,21 @@
+goto function "AnnounceCookie"
+title "&6&lCOOKIE GIVEN!" "&aA &6&lcookie &awas given!" 1 2 1
+
+goto function "CheckCookies"
+
+if (placeholder %house.cookies% > globalstat "currentCookies") {
+    globalstat "cookiesGiven" = 1
+}
+
+if (hasItem "CookieEvent\CustomCookie" metadata Hand anyAmount, globalstat "cookiesGiven" == 1) {
+    chat "&aThank &lyou &afor giving us your &6&lcookie!"
+    globalstat "cookiesGiven" = 0
+    function "AnnounceCookie" true 
+    globalstat "currentCookies" = placeholder %house.cookies%
+}
+
+/*
+You will need to set the function "CheckCookies" to automatically run every 20T (or lower).
+Oh yeah, this breaks every week and I haven't bothered to fix it.
+The CustomCookie.json isn't required, you can use any cookie as long as you change the "if (hasItem)" statement
+*/

@@ -1,0 +1,60 @@
+goto function "PlaytimeH"
+
+stat "Playtime/H" = stat "Playtime/Total"
+stat "Playtime/H" //= 3600
+
+stat "Playtime/CurrH" = stat "Playtime/Curr"
+stat "Playtime/CurrH" //= 3600
+// PlaytimeH
+
+goto function "PlaytimeM2"
+
+stat "Playtime/Rem" = stat "Playtime/Sesh"
+stat "Playtime/CurrHT" = stat "Playtime/H"
+stat "Playtime/CurrHT" *= 3600
+stat "Playtime/Rem" -= stat "Playtime/CurrHT"
+
+stat "Playtime/CurrM" = stat "Playtime/Rem"
+stat "Playtime/CurrM" //= 60
+
+// PlaytimeM2
+
+goto function "PlaytimeM"
+
+stat "Playtime/Rem" = stat "Playtime/Total"
+stat "Playtime/HTime" = stat "Playtime/H"
+stat "Playtime/HTime" *= 3600
+stat "Playtime/Rem" -= stat "Playtime/HTime"
+
+stat "Playtime/M" = stat "Playtime/Rem"
+stat "Playtime/M" //= 60
+
+function "PlaytimeM2" false
+// PlaytimeM
+
+goto function "PlaytimeS"
+
+stat "Playtime/MTime" = stat "Playtime/M"
+stat "Playtime/MTime" *= 60
+stat "Playtime/S" = stat "Playtime/Rem"
+stat "Playtime/S" -= stat "Playtime/MTime"
+
+stat "Playtime/CurrMT" = stat "Playtime/M"
+stat "Playtime/CurrMT" *= 60
+stat "Playtime/CurrS" = stat "Playtime/Rem"
+stat "Playtime/CurrS" -= stat "Playtime/MTime"
+// PlaytimeS
+
+goto function "PlaytimeCalc"
+
+stat "Playtime" += 1
+stat "Playtime/Sesh" += 1
+stat "Playtime/Total" = stat "Playtime"
+stat "Playtime/Curr" = stat "Playtime/Sesh"
+
+function "PlaytimeH" false
+function "PlaytimeM" false
+function "PlaytimeS" false
+
+goto event "Player Quit"
+stat "Playtime/Seshion" = 0

@@ -1,0 +1,10 @@
+goto function "PlayerIDs"
+if or (stat "Id" == 0, stat "Id" == null) {
+    stat "Id" = globalstat "NextId"
+    globalstat "NextId" += 1
+}
+
+chat "&6&l%player.name% &r&fjoined! &2[SOUL#%stat.player/id%]"
+
+goto event "Player Join"
+function "PlayerIDs" true

@@ -1,0 +1,13 @@
+/*goto event "Player Join"
+if (stat "Daily/Claimed" == placeholder %date.day/[EST]%) {
+    stat "Daily/Color" = 8
+}*/
+
+goto npc "Daily Reward"
+if (stat "Daily/Claimed" == placeholder %date.day/[EST]%) {
+    chat "&4&l[ERR] &fAlready claimed reward. Come back tomorrow."
+    exit
+} else {
+    stat "Daily/Claimed" = placeholder %date.day/[EST]%
+    stat "Daily/Color" = 8
+}

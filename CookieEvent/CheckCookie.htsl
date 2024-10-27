@@ -7,7 +7,7 @@ if (placeholder %house.cookies% > globalstat "currentCookies") {
     globalstat "cookiesGiven" = 1
 }
 
-if (hasItem "CookieEvent\CustomCookie" metadata Hand anyAmount, globalstat "cookiesGiven" == 1) {
+if (hasItem "tools\CookieEvent\CustomCookie" metadata Hand anyAmount, globalstat "cookiesGiven" == 1) {
     chat "&aThank &lyou &afor giving us your &6&lcookie!"
     globalstat "cookiesGiven" = 0
     function "AnnounceCookie" true 

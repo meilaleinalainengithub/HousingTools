@@ -7,4 +7,4 @@ if or (stat "Id" == 0, stat "Id" == null) {
 chat "&6&l%player.name% &r&fjoined! &2[SOUL#%stat.player/id%]"
 
 goto event "Player Join"
-function "PlayerIDs" true
+function "PlayerIDs" false

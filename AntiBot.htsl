@@ -14,6 +14,5 @@ if (stat "Playtime/Sesh" < 10, stat "AntiBot/PosX" == locX, stat "AntiBot/PosZ" 
 /*
 You need
 1. A function to count every second they're in the house.
-2. Some way to kick/ban/mute/punish the bot.
-3. To give me a cookie pls.
+2. Some way to punish the bot.
 */

@@ -1,6 +1,6 @@
 goto event "Player Join"
 if (stat "AntiBot/Strikes" == 2) {
-    tp "custom_coordinates" "" /* coords for auto-kicker (or some way to ban/kick them)*/
+    tp "custom_coordinates" "-52 107 58"
 } else {
     stat "AntiBot/PosX" = locX
     stat "AntiBot/PosZ" = locZ

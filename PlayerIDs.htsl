@@ -1,5 +1,5 @@
 goto function "PlayerIDs"
-if or (stat "Id" == 0, stat "Id" == null) {
+if (stat "Id" == 0) {
     stat "Id" = globalstat "NextId"
     globalstat "NextId" += 1
 }

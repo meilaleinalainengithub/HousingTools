@@ -57,4 +57,4 @@ function "PlaytimeM" false
 function "PlaytimeS" false
 
 goto event "Player Quit"
-stat "Playtime/Seshion" = 0
+stat "Playtime/Sesh" = 0

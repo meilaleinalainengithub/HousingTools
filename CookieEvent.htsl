@@ -1,16 +1,12 @@
-goto function "AnnounceCookie"
-title "&6&lCOOKIE GIVEN!" "&aA &6&lcookie &awas given!" 1 2 1
-
 goto function "CheckCookies"
 
 if (placeholder %house.cookies% > globalstat "currentCookies") {
     globalstat "cookiesGiven" = 1
 }
 
-if (hasItem "tools\CookieEvent\CustomCookie" metadata Hand anyAmount, globalstat "cookiesGiven" == 1) {
+if (globalstat "cookiesGiven" == 1) {
     chat "&aThank &lyou &afor giving us your &6&lcookie!"
     globalstat "cookiesGiven" = 0
-    function "AnnounceCookie" true 
     globalstat "currentCookies" = placeholder %house.cookies%
 }
 
